@@ -1,0 +1,50 @@
+{
+    "name": "Alive2212/LaravelSmartResponse",
+    "type": "library",
+    "description": "This package for response of api in standard type",
+    "keywords": [
+        "Alive2212",
+        "LaravelSmartResponse"
+    ],
+    "homepage": "https://github.com/Alive2212/LaravelSmartResponse",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Babak Nodoust",
+            "email": "alive2212@yahoo.com",
+            "homepage": "http://babakn.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.1",
+        "php" : "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alive2212\\LaravelSmartResponse\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alive2212\\LaravelSmartResponse\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
