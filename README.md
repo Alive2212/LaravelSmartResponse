@@ -59,7 +59,6 @@ If you discover any security related issues, please email alive2212@yahoo.com in
 ## Credits
 
 - [Babak Nodoust][link-author]
-- [All Contributors][link-contributors]
 
 ## License
 
@@ -70,12 +69,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-travis]: https://img.shields.io/travis/Alive2212/LaravelSmartResponse/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Alive2212/LaravelSmartResponse.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/Alive2212/LaravelSmartResponse.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/Alive2212/LaravelSmartResponse.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/Alive2212/laravel-smart-response.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/Alive2212/LaravelSmartResponse
+[link-packagist]: https://packagist.org/packages/Alive2212/laravel-smart-response
 [link-travis]: https://travis-ci.org/Alive2212/LaravelSmartResponse
 [link-scrutinizer]: https://scrutinizer-ci.com/g/Alive2212/LaravelSmartResponse/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/Alive2212/LaravelSmartResponse
-[link-downloads]: https://packagist.org/packages/Alive2212/LaravelSmartResponse
-[link-author]: https://github.com/https://github.com/Alive2212
+[link-downloads]: https://packagist.org/packages/Alive2212/laravel-smart-response
+[link-author]: https://github.com/Alive2212
 [link-contributors]: ../../contributors
