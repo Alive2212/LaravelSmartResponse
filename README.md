@@ -65,7 +65,7 @@ If you discover any security related issues, please email alive2212@yahoo.com in
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/Alive2212/LaravelSmartResponse.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/Alive2212/laravel-smart-response.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/Alive2212/LaravelSmartResponse/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Alive2212/LaravelSmartResponse.svg?style=flat-square
