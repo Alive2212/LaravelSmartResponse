@@ -18,20 +18,25 @@
     ],
     "require": {
         "illuminate/support": "~5.1",
+        "alive2212/array-helper" : "~1.0",
         "php" : "~5.6|~7.0"
     },
     "require-dev": {
+        "illuminate/container" : "~5.4",
+        "alive2212/array-helper" : "~1.0",
         "phpunit/phpunit" : ">=5.4.3",
         "squizlabs/php_codesniffer": "^2.3"
     },
     "autoload": {
         "psr-4": {
-            "Alive2212\\LaravelSmartResponse\\": "src"
+            "Alive2212\\LaravelSmartResponse\\": "src",
+            "Alive2212\\LaravelSmartResponseTest\\": "tests"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Alive2212\\LaravelSmartResponse\\": "tests"
+            "Alive2212\\LaravelSmartResponse\\": "src",
+            "Alive2212\\LaravelSmartResponseTest\\": "tests"
         }
     },
     "scripts": {

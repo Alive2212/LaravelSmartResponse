@@ -8,7 +8,7 @@
 
 namespace Alive2212\LaravelSmartResponse;
 
-use App\Resources\ArrayHelper;
+use Alive2212\ArrayHelper\ArrayHelper;
 use Illuminate\Support\Collection;
 
 class ResponseModel
@@ -77,17 +77,17 @@ class ResponseModel
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getStatus(): string
+    public function getStatus(): bool
     {
         return $this->status;
     }
 
     /**
-     * @param string $status
+     * @param bool $status
      */
-    public function setStatus(string $status)
+    public function setStatus(bool $status)
     {
         $this->status = $status;
     }
