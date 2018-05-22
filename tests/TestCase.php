@@ -1,6 +1,6 @@
 <?php
 
-namespace Alive2212\LaravelSmartResponseTest\tests;
+namespace Alive2212\LaravelSmartResponseTest;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
