@@ -8,8 +8,7 @@
 
 namespace Alive2212\LaravelSmartResponse;
 
-use App\Resources\Event\EventHandler;
-use App\Resources\Model\ResponseModel;
+use Alive2212\LaravelSmartResponse\ResponseModel;
 
 class SmartResponse
 {
