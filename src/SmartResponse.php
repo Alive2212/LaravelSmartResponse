@@ -1,14 +1,13 @@
 <?php
+
+use Alive2212\LaravelSmartResponse\ResponseModel;
+
 /**
  * Created by PhpStorm.
  * User: alive
  * Date: 8/23/17
  * Time: 6:46 AM
  */
-
-namespace Alive2212\LaravelSmartResponse;
-
-use Alive2212\LaravelSmartResponse\ResponseModel;
 
 class SmartResponse
 {
@@ -22,7 +21,7 @@ class SmartResponse
             'Content-Type' => 'application/json; charset=UTF-8',
             'charset' => 'utf-8'
         );
-        if (is_null($response->getError())) {
+        if (!is_null($response->getError())) {
             return response()->json([
                 'status' => $response->getStatus(),
                 'data' => $response->getData()->count() ? $response->getData() : null,
