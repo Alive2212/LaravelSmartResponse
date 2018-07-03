@@ -1,13 +1,15 @@
 <?php
 
-use Alive2212\LaravelSmartResponse\ResponseModel;
-
 /**
  * Created by PhpStorm.
- * User: alive
+ * User: Alive...
  * Date: 8/23/17
  * Time: 6:46 AM
  */
+
+namespace Alive2212\LaravelSmartResponse\SmartResponse;
+
+use Alive2212\LaravelSmartResponse\ResponseModel;
 
 class SmartResponse
 {
