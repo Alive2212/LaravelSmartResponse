@@ -9,6 +9,7 @@
 namespace Alive2212\LaravelSmartResponse;
 
 use Alive2212\ArrayHelper\ArrayHelper;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class ResponseModel
@@ -16,15 +17,13 @@ class ResponseModel
     protected $message;
     protected $data;
     protected $error;
-    protected $status;
     protected $statusCode;
 
     public function __construct()
     {
         $this->data = new Collection();
         $this->message = '';
-        $this->error = null;
-        $this->status = "true";
+        $this->error = array();
         $this->statusCode = 200;
     }
 
@@ -61,41 +60,25 @@ class ResponseModel
     }
 
     /**
-     * @return null
+     * @return array
      */
-    public function getError()
+    public function getError():array
     {
         return $this->error;
     }
 
     /**
-     * @param null $error
+     * @param array $error
      */
-    public function setError($error)
+    public function setError(array $error)
     {
         $this->error = $error;
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function getStatus(): bool
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param bool $status
-     */
-    public function setStatus(bool $status)
-    {
-        $this->status = $status;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStatusCode()
+    public function getStatusCode():int
     {
         return $this->statusCode;
     }
@@ -103,16 +86,16 @@ class ResponseModel
     /**
      * @param mixed $statusCode
      */
-    public function setStatusCode($statusCode)
+    public function setStatusCode(int $statusCode)
     {
         $this->statusCode = $statusCode;
     }
 
     /**
-     * @param mixed $data
-     * @param $params
+     * @param Collection $data
+     * @param array $params
      */
-    public function setBeautifulData(Collection $data, $params)
+    public function setBeautifulData(Collection $data, array $params)
     {
         $result = [];
         foreach ($data->get('data') as $datum) {
@@ -125,18 +108,18 @@ class ResponseModel
                         foreach ($innerData as $innerDatum) {
                             $tempArray = [];
                             foreach ($innerParamValues as $innerParamValueKey => $innerParamValueValue) {
-                                $tempArray = array_add($tempArray, $innerParamValueKey, (new ArrayHelper())->getDeep($innerDatum, $innerParamValueValue));
+                                $tempArray = Arr::add($tempArray, $innerParamValueKey, (new ArrayHelper())->getDeep($innerDatum, $innerParamValueValue));
                             }
                             array_push($innerResultArray, $tempArray);
                         }
                     }
                     if (collect($innerResultArray)->count()) {
-                        $innerResult = array_add($innerResult, $paramKey, $innerResultArray);
+                        $innerResult = Arr::add($innerResult, $paramKey, $innerResultArray);
                     } else {
-                        $innerResult = array_add($innerResult, $paramKey, null);
+                        $innerResult = Arr::add($innerResult, $paramKey, null);
                     }
                 } else {
-                    $innerResult = array_add($innerResult, $paramKey, (new ArrayHelper())->getDeep($datum, $paramValue));
+                    $innerResult = Arr::add($innerResult, $paramKey, (new ArrayHelper())->getDeep($datum, $paramValue));
                 }
             }
             array_push($result, $innerResult);
@@ -144,5 +127,4 @@ class ResponseModel
         $data->offsetSet('data', $result);
         $this->data = $data;
     }
-
 }

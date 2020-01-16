@@ -7,9 +7,9 @@
  * Time: 6:46 AM
  */
 
-namespace Alive2212\LaravelSmartResponse\SmartResponse;
+namespace Alive2212\LaravelSmartResponse;
 
-use Alive2212\LaravelSmartResponse\ResponseModel;
+use Illuminate\Support\Arr;
 
 class SmartResponse
 {
@@ -23,20 +23,18 @@ class SmartResponse
             'Content-Type' => 'application/json; charset=UTF-8',
             'charset' => 'utf-8'
         );
-        if (!is_null($response->getError())) {
-            return response()->json([
-                'status' => $response->getStatus(),
-                'data' => $response->getData()->count() ? $response->getData() : null,
-                'message' => $response->getMessage(),
-                'error_code' => $response->getError(),
-            ], $response->getstatusCode(), $header, JSON_UNESCAPED_UNICODE);
-        } else {
-            return response()->json([
-                'status' => $response->getStatus(),
-                'data' => $response->getData()->count() ? $response->getData() : null,
-                'message' => $response->getMessage(),
-            ], $response->getStatusCode(), $header, JSON_UNESCAPED_UNICODE);
+
+        $responseParams = [];
+        if ($response->getData()->count()) {
+            $responseParams = Arr::add($responseParams, 'results', $response->getData());
         }
+        if (!is_null($response->getMessage())) {
+            $responseParams = Arr::add($responseParams, 'message', $response->getMessage());
+        }
+        if (count($response->getError())) {
+            $responseParams = Arr::add($responseParams, 'errors', $response->getError());
+        }
+        return response()->json($responseParams, $response->getstatusCode(), $header, JSON_UNESCAPED_UNICODE);
     }
 }
 
