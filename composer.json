@@ -18,7 +18,7 @@
     ],
     "require": {
         "illuminate/support": "^6",
-        "alive2212/array-helper" : "~2",
+        "alive2212/array-helper" : "~2.0",
         "php" : "~5.6|~7",
         "ext-json": "*"
     },
