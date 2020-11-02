@@ -25,9 +25,7 @@ class SmartResponse
         );
 
         $responseParams = [];
-        if ($response->getData()->count()) {
-            $responseParams = Arr::add($responseParams, 'results', $response->getData());
-        }
+        $responseParams = Arr::add($responseParams, 'results', $response->getData());
         if (!is_null($response->getMessage())) {
             $responseParams = Arr::add($responseParams, 'message', $response->getMessage());
         }
@@ -37,4 +35,3 @@ class SmartResponse
         return response()->json($responseParams, $response->getstatusCode(), $header, JSON_UNESCAPED_UNICODE);
     }
 }
-
