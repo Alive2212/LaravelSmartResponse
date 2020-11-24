@@ -23,14 +23,19 @@ class SmartResponse
             'Content-Type' => 'application/json; charset=UTF-8',
             'charset' => 'utf-8'
         );
-
         $responseParams = [];
-        $responseParams = Arr::add($responseParams, 'results', $response->getData());
+        if ($response->getData()->count()) {
+            $responseParams = Arr::add($responseParams, 'results', $response->getData());
+        } else {
+            $responseParams = Arr::add($responseParams, 'results', new \stdClass());
+        }
         if (!is_null($response->getMessage())) {
             $responseParams = Arr::add($responseParams, 'message', $response->getMessage());
         }
         if (count($response->getError())) {
             $responseParams = Arr::add($responseParams, 'errors', $response->getError());
+        } else {
+            $responseParams = Arr::add($responseParams, 'errors', new \stdClass());
         }
         return response()->json($responseParams, $response->getstatusCode(), $header, JSON_UNESCAPED_UNICODE);
     }
